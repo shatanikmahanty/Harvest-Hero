@@ -1,6 +1,6 @@
 # harvest_hero
 
-A new Flutter project.
+Official submission of CatGptCoders for Status Code 1
 
 ## Getting Started
 
