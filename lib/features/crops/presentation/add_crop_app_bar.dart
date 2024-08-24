@@ -15,7 +15,7 @@ class AddCropAppBar extends StatelessWidget implements PreferredSizeWidget {
           horizontal: kPadding,
         ),
         decoration: BoxDecoration(
-          color: theme.colorScheme.surface,
+          color: theme.colorScheme.primary,
           borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(kPadding * 2),
             bottomRight: Radius.circular(kPadding * 2),
@@ -25,22 +25,7 @@ class AddCropAppBar extends StatelessWidget implements PreferredSizeWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             AutoLeadingButton(
-              builder: (context, leading, action) {
-                return GestureDetector(
-                  onTap: action,
-                  child: Container(
-                    width: kPadding * 4,
-                    height: kPadding * 4,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: theme.colorScheme.onPrimary,
-                    ),
-                    child: const Center(
-                      child: Icon(Icons.arrow_left, size: kPadding * 4,),
-                    ),
-                  ),
-                );
-              },
+              color: theme.colorScheme.onPrimary,
             ),
             const SizedBox(width: kPadding * 2),
             Expanded(

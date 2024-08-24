@@ -16,14 +16,16 @@ class WeatherCard extends StatelessWidget {
       margin: const EdgeInsets.all(kPadding),
       padding: const EdgeInsets.only(bottom: kPadding * 4),
       decoration: BoxDecoration(
-        color: AppColors.containerOutline,
+        color: colorScheme.primary.withOpacity(0.6),
         borderRadius: BorderRadius.circular(kPadding * 3),
       ),
       child: Container(
         padding: const EdgeInsets.symmetric(
-            horizontal: kPadding * 4, vertical: kPadding * 2),
+          horizontal: kPadding * 4,
+          vertical: kPadding * 2,
+        ),
         decoration: BoxDecoration(
-          color: AppColors.cardColor,
+          color: colorScheme.primary,
           borderRadius: BorderRadius.circular(kPadding * 3),
         ),
         child: Row(

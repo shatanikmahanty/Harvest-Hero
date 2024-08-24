@@ -55,19 +55,18 @@ class AppColors {
   );
 
   static const cardColor = Color(0xFF0A5373);
-  static const heading = Color(0xFF7B563F);
   static const containerOutline = Color(0xFF55CAE4);
   static const cropDetailCard = Color(0xFFE8EAEA);
 
   // Light theme colors
-  static const Color primary = Color(0xFF005c0c);
+  static const Color primary = Color(0xFF2a71f2);
   static const Color onPrimary = Colors.white;
   static const Color primaryContainer = Color(0xffdeffe4);
-  static const Color onPrimaryContainer = Color(0xff00632b);
+  static const Color onPrimaryContainer = Color(0xff3a88c9);
   static const Color secondary = Color(0xff4fa456);
   static const Color onSecondary = Colors.white;
   static const Color secondaryContainer = Color(0xffE9DDFF);
-  static const Color onSecondaryContainer = Color(0xff7B563F);
+  static const Color onSecondaryContainer = Color(0xFF000000);
   static const Color tertiary = Color(0xff006D37);
   static const Color onTertiary = Colors.white;
   static const Color tertiaryContainer = Color(0xff8CF9AA);
@@ -86,7 +85,7 @@ class AppColors {
   static const Color outlineVariant = Color(0xffC4C6D0);
 
   // Dark theme colors
-  static const Color primaryDark = Color(0xFF005c0c);
+  static const Color primaryDark = Color(0xFF0A5373);
   static const Color onPrimaryDark = Color(0xffE5DEFF);
   static const Color primaryContainerDark = Colors.green;
   static const Color onPrimaryContainerDark = Color(0xffE5DEFF);

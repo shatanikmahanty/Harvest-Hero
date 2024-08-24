@@ -23,6 +23,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final colorScheme = theme.colorScheme;
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -34,8 +35,7 @@ class _HomePageState extends State<HomePage> {
               child: Text(
                 "Weather updates",
                 style: theme.textTheme.titleLarge?.copyWith(
-                  color: AppColors.heading,
-                  fontWeight: FontWeight.normal,
+                  color: colorScheme.onSecondaryContainer
                 ),
               ),
             ),
@@ -54,8 +54,7 @@ class _HomePageState extends State<HomePage> {
                   Text(
                     "Crops Harvested",
                     style: theme.textTheme.titleLarge?.copyWith(
-                      color: AppColors.heading,
-                      fontWeight: FontWeight.normal,
+                      color: colorScheme.onSecondaryContainer,
                     ),
                   ),
                   SizedBox(
@@ -66,9 +65,9 @@ class _HomePageState extends State<HomePage> {
                         context.router.push(const AddCropRoute());
                       },
                       icon: const Icon(Icons.add),
-                      color: theme.colorScheme.onPrimary,
+                      color: colorScheme.onPrimary,
                       style: IconButton.styleFrom(
-                          backgroundColor: theme.colorScheme.onPrimaryContainer,
+                          backgroundColor: colorScheme.primary,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(kPadding / 1.5),
                           ),

@@ -36,8 +36,7 @@ class HarvestHeroAppBar extends StatelessWidget implements PreferredSizeWidget {
               ? Text(
                   appBarTitleText!,
                   style: theme.textTheme.titleLarge?.copyWith(
-                    color: AppColors.heading,
-                    fontWeight: FontWeight.normal,
+                    color: theme.colorScheme.onSecondaryContainer,
                   ),
                 )
               : appBarTitleWidget,

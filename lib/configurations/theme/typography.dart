@@ -49,8 +49,8 @@ class AppTextStyle {
       );
 
   static TextStyle get titleLarge => const TextStyle(
-        fontWeight: FontWeight.w400,
-        fontSize: 22,
+        fontWeight: FontWeight.w500,
+        fontSize: 20,
         height: 1.27,
         fontFamily: kFontFamily,
       );

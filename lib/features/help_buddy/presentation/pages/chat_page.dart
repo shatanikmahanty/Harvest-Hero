@@ -47,7 +47,7 @@ class _ChatPageState extends State<ChatPage> {
         padding: const EdgeInsets.all(kPadding * 1.5),
         margin: const EdgeInsets.all(kPadding * 1.5),
         decoration: BoxDecoration(
-            color: colorScheme.outlineVariant.withOpacity(0.7),
+            color: colorScheme.primary.withOpacity(0.85),
             borderRadius: BorderRadius.circular(kPadding * 1.5)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +58,7 @@ class _ChatPageState extends State<ChatPage> {
                   'Select your prompt',
                   style: textTheme.titleMedium?.copyWith(
                     fontSize: 19,
-                    color: colorScheme.onSurfaceVariant.withOpacity(0.7),
+                    color: colorScheme.onPrimary,
                   ),
                 ),
                 const Spacer(),
@@ -70,9 +70,9 @@ class _ChatPageState extends State<ChatPage> {
                       context.router.push(const AnalyzeImageRoute());
                     },
                     icon: const Icon(Icons.add),
-                    color: theme.colorScheme.onPrimary,
+                    color: theme.colorScheme.primary,
                     style: IconButton.styleFrom(
-                        backgroundColor: theme.colorScheme.onPrimaryContainer,
+                        backgroundColor: theme.colorScheme.onPrimary,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(kPadding / 1.5),
                         ),
@@ -109,7 +109,7 @@ class _ChatPageState extends State<ChatPage> {
                       child: Center(
                         child: Text(
                           prompts[index],
-                          style: theme.textTheme.titleMedium,
+                          style: theme.textTheme.titleSmall,
                         ),
                       ),
                     ),
