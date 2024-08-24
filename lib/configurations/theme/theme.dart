@@ -35,7 +35,7 @@ class AppTheme {
         textButtonSchemeColor: SchemeColor.primary,
         elevatedButtonTextStyle: buttonTextStyle,
         elevatedButtonSchemeColor: SchemeColor.onPrimary,
-        elevatedButtonSecondarySchemeColor: SchemeColor.onSecondaryContainer,
+        elevatedButtonSecondarySchemeColor: SchemeColor.primary,
         outlinedButtonOutlineSchemeColor: SchemeColor.primary,
         outlinedButtonSchemeColor: SchemeColor.primary,
         checkboxSchemeColor: SchemeColor.primary,
@@ -92,7 +92,7 @@ class AppTheme {
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: colorScheme.onPrimary,
           statusBarIconBrightness: Brightness.dark,
-          systemNavigationBarColor:  colorScheme.onPrimary,
+          systemNavigationBarColor: colorScheme.onPrimary,
         ),
       ),
     );
@@ -199,7 +199,7 @@ class AppTheme {
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: colorScheme.onPrimary,
           statusBarIconBrightness: Brightness.dark,
-          systemNavigationBarColor:  colorScheme.onPrimary,
+          systemNavigationBarColor: colorScheme.onPrimary,
         ),
       ),
       switchTheme: theme.switchTheme.copyWith(

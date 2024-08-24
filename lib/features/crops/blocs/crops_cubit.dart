@@ -16,6 +16,7 @@ class CropsState with _$CropsState {
     // )
     // @Default([]) List<Crops> Crops,
     @Default(false) bool isLoading,
+    String? quantityUnit,
   }) = _CropsState;
 
   factory CropsState.fromJson(Map<String, dynamic> json) =>
@@ -26,10 +27,14 @@ class CropsCubit extends Cubit<CropsState> {
   CropsCubit() : super(const CropsState());
 
   FormGroup get cropsForm => FormGroup({
-    'name': FormControl<String>(value: ''),
-    'quantity': FormControl<double>(),
-    'price': FormControl<double>(),
-    'cropSowedOn' : FormControl<DateTime>(),
-    'expectedHarvestDate' : FormControl<DateTime>(),
-  });
+        'name': FormControl<String>(value: ''),
+        'quantity': FormControl<double>(),
+        'price': FormControl<double>(),
+        'cropSowedOn': FormControl<DateTime>(),
+        'expectedHarvestDate': FormControl<DateTime>(),
+      });
+
+  void updateQuantityUnit(String value) {
+    emit(state.copyWith(quantityUnit: value));
+  }
 }

@@ -34,8 +34,8 @@ class AddCropAppBar extends StatelessWidget implements PreferredSizeWidget {
                 children: [
                   Text(
                     'Create a new crop',
-                    style: theme.textTheme.headlineSmall?.copyWith(
-                        color: theme.colorScheme.onPrimary),
+                    style: theme.textTheme.headlineSmall
+                        ?.copyWith(color: theme.colorScheme.onPrimary),
                   ),
                   const SizedBox(height: kPadding),
                   Expanded(
@@ -56,5 +56,5 @@ class AddCropAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kPadding * 18);
+  Size get preferredSize => const Size.fromHeight(kPadding * 15);
 }
