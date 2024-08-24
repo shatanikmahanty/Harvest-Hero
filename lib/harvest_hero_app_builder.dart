@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:harvest_hero/features/app/app.dart';
+import 'package:harvest_hero/features/crops/blocs/crops_cubit.dart';
 import 'package:harvest_hero/features/help_buddy/blocs/google_generative_ai_bloc.dart';
 import 'package:harvest_hero/features/help_buddy/data/repositories/google_generative_ai_repository.dart';
 import 'package:harvest_hero/features/home/blocs/weather_cubit.dart';
@@ -53,6 +54,9 @@ class HarvestHeroAppBuilder extends AppBuilder {
               create: (context) => WeatherCubit(
                 weatherRepository: context.read<WeatherRepo>(),
               ),
+            ),
+            BlocProvider<CropsCubit>(
+              create: (context) => CropsCubit(),
             ),
           ],
           builder: (context) => AppCubitConsumer(
