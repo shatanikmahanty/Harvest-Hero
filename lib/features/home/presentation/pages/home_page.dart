@@ -1,11 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:harvest_hero/configurations/configurations.dart';
 import 'package:harvest_hero/features/home/presentation/crop_details_card.dart';
 import 'package:harvest_hero/features/home/presentation/weather_card.dart';
-
-import '../../../../configurations/router/router.gr.dart';
-import '../../../../configurations/theme/colors.dart';
-import '../../../../configurations/theme/size_constants.dart';
 
 @RoutePage()
 class HomePage extends StatelessWidget {
@@ -16,18 +12,6 @@ class HomePage extends StatelessWidget {
     final theme = Theme.of(context);
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: theme.colorScheme.onPrimary,
-          leading: const Icon(Icons.menu, size: kPadding * 4),
-          title: Text(
-            "HelpFarmer",
-            style: theme.textTheme.titleLarge?.copyWith(
-              color: AppColors.heading,
-              fontWeight: FontWeight.normal,
-            ),
-          ),
-        ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

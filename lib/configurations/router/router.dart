@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:harvest_hero/features/app/presentation/pages/app_home_routes.dart';
 
 import '../configurations.dart';
 
@@ -18,8 +19,9 @@ class AppRouter extends $AppRouter {
   @override
   final List<AutoRoute> routes = [
     AutoRoute(
-      path: '/home',
-      page: HomeRoute.page,
+      path: '/app-home',
+      page: AppHomeRoute.page,
+      children: appHomeRoutes,
     ),
     AutoRoute(
       path: '/add-crops',

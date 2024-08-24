@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 ///Generate by running ```fluttergen``` in the terminal
 // export 'assets.gen.dart';
 
-const kAppTitle = 'Farmers App';
-const kAppBarTitle = 'FarmHero';
+const kAppTitle = 'HarvestHero';
+const kAppBarTitle = 'HarvestHero';
 const kBrandName = 'CatGptCoders';
 
 const kBrandGradient = [

@@ -50,6 +50,8 @@ class AppTheme {
         bottomNavigationBarSelectedIconSize: kPadding * 3,
         bottomNavigationBarUnselectedIconSize: kPadding * 3,
         bottomNavigationBarShowUnselectedLabels: true,
+        bottomNavigationBarBackgroundSchemeColor: SchemeColor.outline,
+        bottomNavigationBarSelectedIconSchemeColor: SchemeColor.primary,
       );
 
   static ThemeData get light {

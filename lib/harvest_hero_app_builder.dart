@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:harvest_hero/features/app/app.dart';
+import 'package:harvest_hero/features/help_buddy/blocs/google_generative_ai_bloc.dart';
+import 'package:harvest_hero/features/help_buddy/data/repositories/google_generative_ai_repository.dart';
 
 import 'configurations/configurations.dart';
 
@@ -21,6 +23,9 @@ class HarvestHeroAppBuilder extends AppBuilder {
             RepositoryProvider<AppLinksRepository>.value(
               value: appLinksRepository,
             ),
+            RepositoryProvider<GoogleGenerativeAiRepository>(
+              create: (context) => GoogleGenerativeAiRepository(),
+            ),
           ],
           providers: [
             BlocProvider<AppCubit>(
@@ -32,6 +37,12 @@ class HarvestHeroAppBuilder extends AppBuilder {
                 context.read<AppLinksRepository>(),
               ),
               lazy: false,
+            ),
+            BlocProvider<GoogleGenerativeAiBloc>(
+              create: (context) => GoogleGenerativeAiBloc(
+                generativeAiRepository:
+                context.read<GoogleGenerativeAiRepository>(),
+              ),
             ),
           ],
           builder: (context) => AppCubitConsumer(
@@ -62,7 +73,7 @@ class HarvestHeroAppBuilder extends AppBuilder {
                 deepLinkBuilder: (deepLink) {
                   return initialDeepLink != null
                       ? DeepLink.path(initialDeepLink)
-                      : const DeepLink([HomeRoute()]);
+                      : const DeepLink([AppHomeRoute()]);
                 },
               ),
               builder: (context, child) => AppResponsiveLayoutBuilder(
