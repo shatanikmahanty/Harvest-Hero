@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
                     width: kPadding * 4,
                     child: IconButton(
                       onPressed: () {
-                        // context.router.push(const AddCropRoute());
+                        context.router.push(const AddCropRoute());
                       },
                       icon: const Icon(Icons.add),
                       color: theme.colorScheme.onPrimary,

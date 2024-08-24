@@ -34,7 +34,7 @@ Future<void> main() async {
       );
 
       return appBuilder(
-        FarmersAppBuilder(
+        HarvestHeroAppBuilder(
           appRouter: router,
           initialDeepLink: initialDeepLink,
           appLinksRepository: appLinksRepository,

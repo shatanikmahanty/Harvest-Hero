@@ -9,4 +9,9 @@
 
 class Assets {
   Assets._();
+
+  static const String env = 'env';
+
+  /// List of all assets
+  static List<String> get values => [env];
 }

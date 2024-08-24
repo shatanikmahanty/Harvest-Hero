@@ -8,8 +8,8 @@ import 'package:harvest_hero/features/app/app.dart';
 
 import 'configurations/configurations.dart';
 
-class FarmersAppBuilder extends AppBuilder {
-  FarmersAppBuilder({
+class HarvestHeroAppBuilder extends AppBuilder {
+  HarvestHeroAppBuilder({
     super.key,
     super.onDispose,
     required AppRouter appRouter,
