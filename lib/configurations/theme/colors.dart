@@ -2,57 +2,57 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static ColorScheme get lightColorScheme => const ColorScheme(
-    primary: primary,
-    primaryContainer: primaryContainer,
-    onPrimary: onPrimary,
-    onPrimaryContainer: onPrimaryContainer,
-    secondary: secondary,
-    onSecondary: onSecondary,
-    secondaryContainer: secondaryContainer,
-    onSecondaryContainer: onSecondaryContainer,
-    tertiary: tertiary,
-    onTertiary: onTertiary,
-    tertiaryContainer: tertiaryContainer,
-    onTertiaryContainer: onTertiaryContainer,
-    error: error,
-    onError: onError,
-    errorContainer: errorContainer,
-    onErrorContainer: onErrorContainer,
-    surface: surface,
-    onSurface: onSurface,
-    surfaceContainerHighest: surfaceVariant,
-    onSurfaceVariant: onSurfaceVariant,
-    outline: outline,
-    outlineVariant: outlineVariant,
-    brightness: Brightness.light,
-    surfaceTint: Colors.white,
-  );
+        primary: primary,
+        primaryContainer: primaryContainer,
+        onPrimary: onPrimary,
+        onPrimaryContainer: onPrimaryContainer,
+        secondary: secondary,
+        onSecondary: onSecondary,
+        secondaryContainer: secondaryContainer,
+        onSecondaryContainer: onSecondaryContainer,
+        tertiary: tertiary,
+        onTertiary: onTertiary,
+        tertiaryContainer: tertiaryContainer,
+        onTertiaryContainer: onTertiaryContainer,
+        error: error,
+        onError: onError,
+        errorContainer: errorContainer,
+        onErrorContainer: onErrorContainer,
+        surface: surface,
+        onSurface: onSurface,
+        surfaceContainerHighest: surfaceVariant,
+        onSurfaceVariant: onSurfaceVariant,
+        outline: outline,
+        outlineVariant: outlineVariant,
+        brightness: Brightness.light,
+        surfaceTint: Colors.white,
+      );
 
   static ColorScheme get darkColorScheme => const ColorScheme(
-    brightness: Brightness.dark,
-    primary: primaryDark,
-    primaryContainer: primaryContainerDark,
-    onPrimary: onPrimaryDark,
-    onPrimaryContainer: onPrimaryContainerDark,
-    secondary: secondaryDark,
-    onSecondary: onSecondaryDark,
-    secondaryContainer: secondaryContainerDark,
-    onSecondaryContainer: onSecondaryContainerDark,
-    tertiary: tertiaryDark,
-    onTertiary: onTertiaryDark,
-    tertiaryContainer: tertiaryContainerDark,
-    onTertiaryContainer: onTertiaryContainerDark,
-    error: errorDark,
-    onError: onErrorDark,
-    errorContainer: errorContainerDark,
-    onErrorContainer: onErrorContainerDark,
-    surface: surfaceDark,
-    onSurface: onSurfaceDark,
-    surfaceContainerHighest: surfaceVariantDark,
-    onSurfaceVariant: onSurfaceVariantDark,
-    outline: outlineDark,
-    outlineVariant: outlineVariantDark,
-  );
+        brightness: Brightness.dark,
+        primary: primaryDark,
+        primaryContainer: primaryContainerDark,
+        onPrimary: onPrimaryDark,
+        onPrimaryContainer: onPrimaryContainerDark,
+        secondary: secondaryDark,
+        onSecondary: onSecondaryDark,
+        secondaryContainer: secondaryContainerDark,
+        onSecondaryContainer: onSecondaryContainerDark,
+        tertiary: tertiaryDark,
+        onTertiary: onTertiaryDark,
+        tertiaryContainer: tertiaryContainerDark,
+        onTertiaryContainer: onTertiaryContainerDark,
+        error: errorDark,
+        onError: onErrorDark,
+        errorContainer: errorContainerDark,
+        onErrorContainer: onErrorContainerDark,
+        surface: surfaceDark,
+        onSurface: onSurfaceDark,
+        surfaceContainerHighest: surfaceVariantDark,
+        onSurfaceVariant: onSurfaceVariantDark,
+        outline: outlineDark,
+        outlineVariant: outlineVariantDark,
+      );
 
   static const cardColor = Color(0xFF0A5373);
   static const containerOutline = Color(0xFF55CAE4);
@@ -61,7 +61,7 @@ class AppColors {
   // Light theme colors
   static const Color primary = Color(0xFF2a71f2);
   static const Color onPrimary = Colors.white;
-  static const Color primaryContainer = Color(0xffdeffe4);
+  static const Color primaryContainer = Color(0xff0520bd);
   static const Color onPrimaryContainer = Color(0xff3a88c9);
   static const Color secondary = Color(0xff4fa456);
   static const Color onSecondary = Colors.white;
@@ -77,7 +77,7 @@ class AppColors {
   static const Color onErrorContainer = Color(0xff400013);
   static const Color background = Color(0xffFFFFFF);
   static const Color onBackground = Color(0xff1B1B1F);
-  static const Color surface = Color(0xff159C74);
+  static const Color surface = Color(0xffffffff);
   static const Color onSurface = Color(0xff1B1B1F);
   static const Color surfaceVariant = Color(0xffE1E2EC);
   static const Color onSurfaceVariant = Color(0xff44474F);

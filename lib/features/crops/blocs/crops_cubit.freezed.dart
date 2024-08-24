@@ -26,6 +26,7 @@ mixin _$CropsState {
 // )
 // @Default([]) List<Crops> Crops,
   bool get isLoading => throw _privateConstructorUsedError;
+  String? get quantityUnit => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +40,7 @@ abstract class $CropsStateCopyWith<$Res> {
           CropsState value, $Res Function(CropsState) then) =
       _$CropsStateCopyWithImpl<$Res, CropsState>;
   @useResult
-  $Res call({bool isLoading});
+  $Res call({bool isLoading, String? quantityUnit});
 }
 
 /// @nodoc
@@ -56,12 +57,17 @@ class _$CropsStateCopyWithImpl<$Res, $Val extends CropsState>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? quantityUnit = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      quantityUnit: freezed == quantityUnit
+          ? _value.quantityUnit
+          : quantityUnit // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -74,7 +80,7 @@ abstract class _$$CropsStateImplCopyWith<$Res>
       __$$CropsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading});
+  $Res call({bool isLoading, String? quantityUnit});
 }
 
 /// @nodoc
@@ -89,12 +95,17 @@ class __$$CropsStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = null,
+    Object? quantityUnit = freezed,
   }) {
     return _then(_$CropsStateImpl(
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      quantityUnit: freezed == quantityUnit
+          ? _value.quantityUnit
+          : quantityUnit // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -102,7 +113,7 @@ class __$$CropsStateImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CropsStateImpl implements _CropsState {
-  const _$CropsStateImpl({this.isLoading = false});
+  const _$CropsStateImpl({this.isLoading = false, this.quantityUnit});
 
   factory _$CropsStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$CropsStateImplFromJson(json);
@@ -115,10 +126,12 @@ class _$CropsStateImpl implements _CropsState {
   @override
   @JsonKey()
   final bool isLoading;
+  @override
+  final String? quantityUnit;
 
   @override
   String toString() {
-    return 'CropsState(isLoading: $isLoading)';
+    return 'CropsState(isLoading: $isLoading, quantityUnit: $quantityUnit)';
   }
 
   @override
@@ -127,12 +140,14 @@ class _$CropsStateImpl implements _CropsState {
         (other.runtimeType == runtimeType &&
             other is _$CropsStateImpl &&
             (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+                other.isLoading == isLoading) &&
+            (identical(other.quantityUnit, quantityUnit) ||
+                other.quantityUnit == quantityUnit));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading);
+  int get hashCode => Object.hash(runtimeType, isLoading, quantityUnit);
 
   @JsonKey(ignore: true)
   @override
@@ -149,7 +164,8 @@ class _$CropsStateImpl implements _CropsState {
 }
 
 abstract class _CropsState implements CropsState {
-  const factory _CropsState({final bool isLoading}) = _$CropsStateImpl;
+  const factory _CropsState(
+      {final bool isLoading, final String? quantityUnit}) = _$CropsStateImpl;
 
   factory _CropsState.fromJson(Map<String, dynamic> json) =
       _$CropsStateImpl.fromJson;
@@ -160,6 +176,8 @@ abstract class _CropsState implements CropsState {
 // )
 // @Default([]) List<Crops> Crops,
   bool get isLoading;
+  @override
+  String? get quantityUnit;
   @override
   @JsonKey(ignore: true)
   _$$CropsStateImplCopyWith<_$CropsStateImpl> get copyWith =>
