@@ -32,6 +32,7 @@ class GoogleGenerativeAiBloc extends Cubit<GoogleGenerativeAiState> {
   );
   final _gemini = const User(
     id: "gemini",
+    imageUrl: 'https://i.imgur.com/U0l6Ygp.png',
   );
 
   void submitPrompt(String text) async {

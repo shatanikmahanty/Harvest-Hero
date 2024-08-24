@@ -105,9 +105,9 @@ class _AppHomePageState extends State<AppHomePage> {
       case 0:
         return kAppBarTitle;
       case 1:
-        return 'Lists';
+        return 'HelpBuddy';
       case 2:
-        return 'Profile';
+        return 'Shop';
       default:
         return 'Not Found';
     }
