@@ -7,6 +7,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:harvest_hero/features/app/app.dart';
 import 'package:harvest_hero/features/help_buddy/blocs/google_generative_ai_bloc.dart';
 import 'package:harvest_hero/features/help_buddy/data/repositories/google_generative_ai_repository.dart';
+import 'package:harvest_hero/features/home/blocs/weather_cubit.dart';
+import 'package:harvest_hero/features/home/data/repositories/weather_repo.dart';
 
 import 'configurations/configurations.dart';
 
@@ -26,6 +28,9 @@ class HarvestHeroAppBuilder extends AppBuilder {
             RepositoryProvider<GoogleGenerativeAiRepository>(
               create: (context) => GoogleGenerativeAiRepository(),
             ),
+            RepositoryProvider<WeatherRepo>(
+              create: (context) => WeatherRepo(),
+            ),
           ],
           providers: [
             BlocProvider<AppCubit>(
@@ -41,7 +46,12 @@ class HarvestHeroAppBuilder extends AppBuilder {
             BlocProvider<GoogleGenerativeAiBloc>(
               create: (context) => GoogleGenerativeAiBloc(
                 generativeAiRepository:
-                context.read<GoogleGenerativeAiRepository>(),
+                    context.read<GoogleGenerativeAiRepository>(),
+              ),
+            ),
+            BlocProvider<WeatherCubit>(
+              create: (context) => WeatherCubit(
+                weatherRepository: context.read<WeatherRepo>(),
               ),
             ),
           ],

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../../../configurations/configurations.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:harvest_hero/configurations/configurations.dart';
+import 'package:harvest_hero/features/home/blocs/weather_cubit.dart';
+import 'package:harvest_hero/features/home/presentation/weather_code_to_icon.dart';
 class WeatherCard extends StatelessWidget {
   const WeatherCard({super.key});
 
@@ -10,6 +11,7 @@ class WeatherCard extends StatelessWidget {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
+    final weather = context.watch<WeatherCubit>().state.weather;
     return Container(
       margin: const EdgeInsets.all(kPadding),
       padding: const EdgeInsets.only(bottom: kPadding * 4),
@@ -27,7 +29,7 @@ class WeatherCard extends StatelessWidget {
         child: Row(
           children: [
             Icon(
-              Icons.thunderstorm_rounded,
+              weatherIcon(weather?.weatherMain),
               color: colorScheme.onPrimary,
               size: kPadding * 10,
             ),
@@ -38,13 +40,13 @@ class WeatherCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Cloudy",
+                  weather?.weatherMain ?? "",
                   style: theme.textTheme.titleMedium?.copyWith(
                       color: colorScheme.onPrimary,
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
-                  "Kolkata",
+                  weather?.areaName ?? "",
                   style: theme.textTheme.titleMedium?.copyWith(
                       color: colorScheme.onPrimary,
                       fontWeight: FontWeight.w300),
@@ -53,7 +55,7 @@ class WeatherCard extends StatelessWidget {
             ),
             const Spacer(),
             Text(
-              "20°C",
+              "${weather?.temperature?.celsius?.toInt()}°C",
               style: theme.textTheme.titleLarge?.copyWith(
                   color: colorScheme.onPrimary, fontWeight: FontWeight.w600),
             ),
