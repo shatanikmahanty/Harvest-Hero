@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:harvest_hero/configurations/configurations.dart';
 import 'package:harvest_hero/features/home/blocs/weather_cubit.dart';
-import 'package:harvest_hero/features/home/presentation/weather_code_to_icon.dart';
+import 'package:harvest_hero/utils/weather_code_to_icon.dart';
 class WeatherCard extends StatelessWidget {
   const WeatherCard({super.key});
 
