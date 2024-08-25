@@ -20,11 +20,7 @@ CropsState _$CropsStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CropsState {
-// @JsonKey(
-//   includeFromJson: false,
-//   includeToJson: false,
-// )
-// @Default([]) List<Crops> Crops,
+  List<CropModel> get crops => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   String? get quantityUnit => throw _privateConstructorUsedError;
 
@@ -40,7 +36,7 @@ abstract class $CropsStateCopyWith<$Res> {
           CropsState value, $Res Function(CropsState) then) =
       _$CropsStateCopyWithImpl<$Res, CropsState>;
   @useResult
-  $Res call({bool isLoading, String? quantityUnit});
+  $Res call({List<CropModel> crops, bool isLoading, String? quantityUnit});
 }
 
 /// @nodoc
@@ -56,10 +52,15 @@ class _$CropsStateCopyWithImpl<$Res, $Val extends CropsState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? crops = null,
     Object? isLoading = null,
     Object? quantityUnit = freezed,
   }) {
     return _then(_value.copyWith(
+      crops: null == crops
+          ? _value.crops
+          : crops // ignore: cast_nullable_to_non_nullable
+              as List<CropModel>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -80,7 +81,7 @@ abstract class _$$CropsStateImplCopyWith<$Res>
       __$$CropsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, String? quantityUnit});
+  $Res call({List<CropModel> crops, bool isLoading, String? quantityUnit});
 }
 
 /// @nodoc
@@ -94,10 +95,15 @@ class __$$CropsStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? crops = null,
     Object? isLoading = null,
     Object? quantityUnit = freezed,
   }) {
     return _then(_$CropsStateImpl(
+      crops: null == crops
+          ? _value._crops
+          : crops // ignore: cast_nullable_to_non_nullable
+              as List<CropModel>,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -113,16 +119,24 @@ class __$$CropsStateImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CropsStateImpl implements _CropsState {
-  const _$CropsStateImpl({this.isLoading = false, this.quantityUnit});
+  const _$CropsStateImpl(
+      {final List<CropModel> crops = const [],
+      this.isLoading = false,
+      this.quantityUnit})
+      : _crops = crops;
 
   factory _$CropsStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$CropsStateImplFromJson(json);
 
-// @JsonKey(
-//   includeFromJson: false,
-//   includeToJson: false,
-// )
-// @Default([]) List<Crops> Crops,
+  final List<CropModel> _crops;
+  @override
+  @JsonKey()
+  List<CropModel> get crops {
+    if (_crops is EqualUnmodifiableListView) return _crops;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_crops);
+  }
+
   @override
   @JsonKey()
   final bool isLoading;
@@ -131,7 +145,7 @@ class _$CropsStateImpl implements _CropsState {
 
   @override
   String toString() {
-    return 'CropsState(isLoading: $isLoading, quantityUnit: $quantityUnit)';
+    return 'CropsState(crops: $crops, isLoading: $isLoading, quantityUnit: $quantityUnit)';
   }
 
   @override
@@ -139,6 +153,7 @@ class _$CropsStateImpl implements _CropsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CropsStateImpl &&
+            const DeepCollectionEquality().equals(other._crops, _crops) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.quantityUnit, quantityUnit) ||
@@ -147,7 +162,8 @@ class _$CropsStateImpl implements _CropsState {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, quantityUnit);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_crops), isLoading, quantityUnit);
 
   @JsonKey(ignore: true)
   @override
@@ -165,16 +181,16 @@ class _$CropsStateImpl implements _CropsState {
 
 abstract class _CropsState implements CropsState {
   const factory _CropsState(
-      {final bool isLoading, final String? quantityUnit}) = _$CropsStateImpl;
+      {final List<CropModel> crops,
+      final bool isLoading,
+      final String? quantityUnit}) = _$CropsStateImpl;
 
   factory _CropsState.fromJson(Map<String, dynamic> json) =
       _$CropsStateImpl.fromJson;
 
-  @override // @JsonKey(
-//   includeFromJson: false,
-//   includeToJson: false,
-// )
-// @Default([]) List<Crops> Crops,
+  @override
+  List<CropModel> get crops;
+  @override
   bool get isLoading;
   @override
   String? get quantityUnit;

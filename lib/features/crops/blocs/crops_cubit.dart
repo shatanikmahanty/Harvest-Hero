@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:harvest_hero/features/crops/data/models/crop_model.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 part 'crops_cubit.freezed.dart';
@@ -11,11 +12,7 @@ part 'crops_cubit.g.dart';
 @freezed
 class CropsState with _$CropsState {
   const factory CropsState({
-    // @JsonKey(
-    //   includeFromJson: false,
-    //   includeToJson: false,
-    // )
-    // @Default([]) List<Crops> Crops,
+    @Default([]) List<CropModel> crops,
     @Default(false) bool isLoading,
     String? quantityUnit,
   }) = _CropsState;
@@ -49,8 +46,14 @@ class CropsCubit extends Cubit<CropsState> {
         .collection('crops')
         .get()
         .then((value) {
+      final cropList = value.docs;
+      final crops =
+          cropList.map((doc) => CropModel.fromJson(doc.data())).toList();
       emit(
-        state.copyWith(isLoading: false),
+        state.copyWith(
+          isLoading: false,
+          crops: crops,
+        ),
       );
     });
   }
