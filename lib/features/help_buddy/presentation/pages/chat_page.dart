@@ -4,6 +4,7 @@ import 'package:flutter_chat_ui/flutter_chat_ui.dart';
 import 'package:harvest_hero/configurations/configurations.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 import 'package:harvest_hero/features/help_buddy/help_buddy.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class ChatPage extends StatefulWidget {
@@ -15,14 +16,6 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   String? valueSelected;
-  final List<String> prompts = <String>[
-    'Hi Buddy?',
-    'Suggest me crops to invest in this season?',
-    'What should I do to improve my crops?',
-    'How can I improve my water management?',
-    'What are some tips for cultivating a good soil?',
-    'How can I prevent pests and diseases from affecting crops?',
-  ];
   final _user = const types.User(
     id: "user",
   );
@@ -32,7 +25,15 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    const List<String> languages = <String>['ENG', 'BEN', 'HIN'];
+    final appLocalizations = AppLocalizations.of(context)!;
+    final List<String> prompts = <String>[
+      appLocalizations.hiBuddy,
+      appLocalizations.suggestCropsToInvest,
+      appLocalizations.improveCrops,
+      appLocalizations.waterManagement,
+      appLocalizations.cultivateGoodSoil,
+      appLocalizations.pestControl,
+    ];
     final colorScheme = theme.colorScheme;
     final textTheme = theme.textTheme;
     final messages =
@@ -57,7 +58,7 @@ class _ChatPageState extends State<ChatPage> {
             Row(
               children: [
                 Text(
-                  'Select your prompt',
+                  appLocalizations.selectPrompt,
                   style: textTheme.titleMedium?.copyWith(
                     fontSize: 19,
                     color: colorScheme.onPrimary,

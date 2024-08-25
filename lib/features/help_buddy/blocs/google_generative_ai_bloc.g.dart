@@ -13,10 +13,12 @@ _$GoogleGenerativeAiStateImpl _$$GoogleGenerativeAiStateImplFromJson(
               ?.map((e) => Message.fromJson(e as Map<String, dynamic>))
               .toList() ??
           const [],
+      imageAnalysisResult: json['imageAnalysisResult'] as String?,
     );
 
 Map<String, dynamic> _$$GoogleGenerativeAiStateImplToJson(
         _$GoogleGenerativeAiStateImpl instance) =>
     <String, dynamic>{
       'generativeChats': instance.generativeChats,
+      'imageAnalysisResult': instance.imageAnalysisResult,
     };

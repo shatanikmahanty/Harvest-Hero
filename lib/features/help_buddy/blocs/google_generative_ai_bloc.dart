@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:harvest_hero/features/help_buddy/help_buddy.dart';
 import 'package:uuid/uuid.dart';
 
@@ -12,6 +13,7 @@ part 'google_generative_ai_bloc.g.dart';
 class GoogleGenerativeAiState with _$GoogleGenerativeAiState {
   const factory GoogleGenerativeAiState({
     @Default([]) List<Message> generativeChats,
+    String? imageAnalysisResult,
   }) = _GoogleGenerativeAiState;
 
   factory GoogleGenerativeAiState.fromJson(Map<String, dynamic> json) =>
@@ -72,5 +74,22 @@ class GoogleGenerativeAiBloc extends Cubit<GoogleGenerativeAiState> {
         generativeChats: List<Message>.from(previousChatList),
       ),
     );
+  }
+
+  void submitParts(List<Part> parts) async {
+    final response = await generativeAiRepository.generateFromParts(
+      parts: parts,
+      type: ContentType.text,
+    );
+
+    emit(
+      state.copyWith(
+        imageAnalysisResult: response.text,
+      ),
+    );
+  }
+
+  void clearImageAnalysisResponse() {
+    emit(state.copyWith(imageAnalysisResult: null));
   }
 }

@@ -22,6 +22,7 @@ GoogleGenerativeAiState _$GoogleGenerativeAiStateFromJson(
 /// @nodoc
 mixin _$GoogleGenerativeAiState {
   List<Message> get generativeChats => throw _privateConstructorUsedError;
+  String? get imageAnalysisResult => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $GoogleGenerativeAiStateCopyWith<$Res> {
           $Res Function(GoogleGenerativeAiState) then) =
       _$GoogleGenerativeAiStateCopyWithImpl<$Res, GoogleGenerativeAiState>;
   @useResult
-  $Res call({List<Message> generativeChats});
+  $Res call({List<Message> generativeChats, String? imageAnalysisResult});
 }
 
 /// @nodoc
@@ -53,12 +54,17 @@ class _$GoogleGenerativeAiStateCopyWithImpl<$Res,
   @override
   $Res call({
     Object? generativeChats = null,
+    Object? imageAnalysisResult = freezed,
   }) {
     return _then(_value.copyWith(
       generativeChats: null == generativeChats
           ? _value.generativeChats
           : generativeChats // ignore: cast_nullable_to_non_nullable
               as List<Message>,
+      imageAnalysisResult: freezed == imageAnalysisResult
+          ? _value.imageAnalysisResult
+          : imageAnalysisResult // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -72,7 +78,7 @@ abstract class _$$GoogleGenerativeAiStateImplCopyWith<$Res>
       __$$GoogleGenerativeAiStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Message> generativeChats});
+  $Res call({List<Message> generativeChats, String? imageAnalysisResult});
 }
 
 /// @nodoc
@@ -89,12 +95,17 @@ class __$$GoogleGenerativeAiStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? generativeChats = null,
+    Object? imageAnalysisResult = freezed,
   }) {
     return _then(_$GoogleGenerativeAiStateImpl(
       generativeChats: null == generativeChats
           ? _value._generativeChats
           : generativeChats // ignore: cast_nullable_to_non_nullable
               as List<Message>,
+      imageAnalysisResult: freezed == imageAnalysisResult
+          ? _value.imageAnalysisResult
+          : imageAnalysisResult // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -103,7 +114,8 @@ class __$$GoogleGenerativeAiStateImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GoogleGenerativeAiStateImpl implements _GoogleGenerativeAiState {
   const _$GoogleGenerativeAiStateImpl(
-      {final List<Message> generativeChats = const []})
+      {final List<Message> generativeChats = const [],
+      this.imageAnalysisResult})
       : _generativeChats = generativeChats;
 
   factory _$GoogleGenerativeAiStateImpl.fromJson(Map<String, dynamic> json) =>
@@ -119,8 +131,11 @@ class _$GoogleGenerativeAiStateImpl implements _GoogleGenerativeAiState {
   }
 
   @override
+  final String? imageAnalysisResult;
+
+  @override
   String toString() {
-    return 'GoogleGenerativeAiState(generativeChats: $generativeChats)';
+    return 'GoogleGenerativeAiState(generativeChats: $generativeChats, imageAnalysisResult: $imageAnalysisResult)';
   }
 
   @override
@@ -129,13 +144,17 @@ class _$GoogleGenerativeAiStateImpl implements _GoogleGenerativeAiState {
         (other.runtimeType == runtimeType &&
             other is _$GoogleGenerativeAiStateImpl &&
             const DeepCollectionEquality()
-                .equals(other._generativeChats, _generativeChats));
+                .equals(other._generativeChats, _generativeChats) &&
+            (identical(other.imageAnalysisResult, imageAnalysisResult) ||
+                other.imageAnalysisResult == imageAnalysisResult));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_generativeChats));
+      runtimeType,
+      const DeepCollectionEquality().hash(_generativeChats),
+      imageAnalysisResult);
 
   @JsonKey(ignore: true)
   @override
@@ -154,13 +173,16 @@ class _$GoogleGenerativeAiStateImpl implements _GoogleGenerativeAiState {
 
 abstract class _GoogleGenerativeAiState implements GoogleGenerativeAiState {
   const factory _GoogleGenerativeAiState(
-      {final List<Message> generativeChats}) = _$GoogleGenerativeAiStateImpl;
+      {final List<Message> generativeChats,
+      final String? imageAnalysisResult}) = _$GoogleGenerativeAiStateImpl;
 
   factory _GoogleGenerativeAiState.fromJson(Map<String, dynamic> json) =
       _$GoogleGenerativeAiStateImpl.fromJson;
 
   @override
   List<Message> get generativeChats;
+  @override
+  String? get imageAnalysisResult;
   @override
   @JsonKey(ignore: true)
   _$$GoogleGenerativeAiStateImplCopyWith<_$GoogleGenerativeAiStateImpl>

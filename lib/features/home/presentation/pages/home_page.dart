@@ -4,6 +4,7 @@ import 'package:harvest_hero/configurations/configurations.dart';
 import 'package:harvest_hero/features/home/blocs/weather_cubit.dart';
 import 'package:harvest_hero/features/home/presentation/crop_details_card.dart';
 import 'package:harvest_hero/features/home/presentation/weather_card.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class HomePage extends StatefulWidget {
@@ -24,6 +25,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final appLocalizations = AppLocalizations.of(context);
     return SafeArea(
       child: Scaffold(
         body: Column(
@@ -33,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: kPadding * 2),
               child: Text(
-                "Weather updates",
+                appLocalizations!.weatherUpdates,
                 style: theme.textTheme.titleLarge?.copyWith(
                   color: colorScheme.onSecondaryContainer
                 ),
@@ -52,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Crops Harvested",
+                    appLocalizations.cropsHarvested,
                     style: theme.textTheme.titleLarge?.copyWith(
                       color: colorScheme.onSecondaryContainer,
                     ),

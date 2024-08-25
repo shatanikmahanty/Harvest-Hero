@@ -1,7 +1,8 @@
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:harvest_hero/features/app/app.dart';
-
+import 'package:harvest_hero/features/app/presentation/app_language_picker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../../configurations/configurations.dart';
 
 @RoutePage()
@@ -63,10 +64,14 @@ class _AppHomePageState extends State<AppHomePage> {
       resizeToAvoidBottomInset: false,
       appBarBuilder: (context, tabsRouter) => HarvestHeroAppBar(
         centerTitle: true,
-        appBarTitleText: getAppBarText(tabsRouter.activeIndex),
-        actions: const [],
+        appBarTitleText: getAppBarText(tabsRouter.activeIndex,context),
+        actions: const [
+          AppLanguagePicker()
+        ],
       ),
-      bottomNavigationBuilder: (context, tabsRouter) => SafeArea(
+      bottomNavigationBuilder: (context, tabsRouter) {
+        final appLocalizations = AppLocalizations.of(context)!;
+        return SafeArea(
         bottom: true,
         child: AnimatedNotchBottomBar(
           onTap: (value) => tabsRouter.setActiveIndex(value),
@@ -82,32 +87,34 @@ class _AppHomePageState extends State<AppHomePage> {
             BottomBarItem(
               inActiveItem: Icon(Icons.home_outlined, color: colorScheme.primary,),
               activeItem: Icon(Icons.home, color: colorScheme.onPrimary,),
-              itemLabel: 'Home',
+              itemLabel: appLocalizations.home,
             ),
             BottomBarItem(
               inActiveItem: Icon(Icons.chat_bubble_outline, color: colorScheme.primary,),
               activeItem: Icon(Icons.chat_bubble, color: theme.colorScheme.onPrimary,),
-              itemLabel: 'Chat',
+              itemLabel: appLocalizations.chat,
             ),
             BottomBarItem(
               inActiveItem: Icon(Icons.shopping_bag_outlined, color: colorScheme.primary,),
               activeItem: Icon(Icons.shopping_bag, color: theme.colorScheme.onPrimary,),
-              itemLabel: 'Shop',
+              itemLabel: appLocalizations.shop,
             ),
           ],
         ),
-      ),
+      );
+      },
     );
   }
 
-  String getAppBarText(int activeIndex) {
+  String getAppBarText(int activeIndex, BuildContext context) {
+    final appLocalizations = AppLocalizations.of(context);
     switch (activeIndex) {
       case 0:
-        return kAppBarTitle;
+        return appLocalizations!.harvestHero;
       case 1:
-        return 'HelpBuddy';
+        return appLocalizations!.helpBuddy;
       case 2:
-        return 'Shop';
+        return appLocalizations!.shop;
       default:
         return 'Not Found';
     }

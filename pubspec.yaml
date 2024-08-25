@@ -49,6 +49,7 @@ dependencies:
   responsive_framework: ^1.1.0
   shimmer: ^3.0.0
   url_launcher: ^6.1.12
+  uuid: ^4.4.2
   weather: ^3.1.1
 
 dev_dependencies:
@@ -62,8 +63,8 @@ dev_dependencies:
   freezed: ^2.5.2
   json_serializable: ^6.7.0
 
-
 flutter:
+  generate: true
   uses-material-design: true
   assets:
     - env
@@ -80,8 +81,6 @@ flutter_gen:
   output: lib/configurations/constants
   integrations:
     flutter_svg: true
-
-
 
 flutter_launcher_icons:
   android: true

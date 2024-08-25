@@ -12,6 +12,7 @@ import 'package:harvest_hero/features/home/blocs/weather_cubit.dart';
 import 'package:harvest_hero/features/home/data/repositories/weather_repo.dart';
 
 import 'configurations/configurations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HarvestHeroAppBuilder extends AppBuilder {
   HarvestHeroAppBuilder({
@@ -75,14 +76,8 @@ class HarvestHeroAppBuilder extends AppBuilder {
               darkTheme: AppTheme.dark,
               themeMode: appState.themeMode,
               locale: Locale(appState.locale, ''),
-              supportedLocales: const [
-                Locale('en', ''),
-              ],
-              localizationsDelegates: const [
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
+              supportedLocales: AppLocalizations.supportedLocales,
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
               routerDelegate: appRouter.delegate(
                 deepLinkBuilder: (deepLink) {
                   return initialDeepLink != null

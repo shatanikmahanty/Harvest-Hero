@@ -21,6 +21,7 @@ class GoogleGenerativeAiRepository
     model: 'gemini-1.5-flash-latest',
     apiKey: dotenv.env['GEMINI_KEY'] ?? '',
   );
+
   @override
   Future<GenerateContentResponse> generateFromFile({
     required File file,
@@ -38,6 +39,17 @@ class GoogleGenerativeAiRepository
     required ContentType type,
   }) async {
     final content = [Content.text(text)];
+    final response = await model.generateContent(content);
+    return response;
+  }
+
+  Future<GenerateContentResponse> generateFromParts({
+    required List<Part> parts,
+    required ContentType type,
+  }) async {
+    final content = [
+      Content.multi(parts),
+    ];
     final response = await model.generateContent(content);
     return response;
   }

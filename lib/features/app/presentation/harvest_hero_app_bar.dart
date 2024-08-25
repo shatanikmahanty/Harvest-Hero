@@ -23,29 +23,27 @@ class HarvestHeroAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return EnvironmentSwitcher(
-      child: Padding(
-        padding: const EdgeInsets.all(kPadding),
-        child: AppBar(
-          backgroundColor: Colors.white,
-          leadingWidth: kPadding * 6,
-          elevation: elevation,
-          centerTitle: centerTitle,
-          leading: const Offstage(),
-          title: appBarTitleText != null
-              ? Text(
-                  appBarTitleText!,
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    color: theme.colorScheme.onSecondaryContainer,
-                  ),
-                )
-              : appBarTitleWidget,
-          actions: actions,
-        ),
+    return Padding(
+      padding: const EdgeInsets.all(kPadding),
+      child: AppBar(
+        backgroundColor: Colors.white,
+        leadingWidth: kPadding * 6,
+        elevation: elevation,
+        centerTitle: centerTitle,
+        leading: const Offstage(),
+        title: appBarTitleText != null
+            ? Text(
+                appBarTitleText!,
+                style: theme.textTheme.titleLarge?.copyWith(
+                  color: theme.colorScheme.onSecondaryContainer,
+                ),
+              )
+            : appBarTitleWidget,
+        actions: actions,
       ),
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kPadding * 8);
+  Size get preferredSize => const Size.fromHeight(kPadding * 8.5);
 }

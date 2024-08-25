@@ -1,0 +1,17 @@
+{
+  "weatherUpdates": "Weather Updates",
+  "cropsHarvested": "Crops Harvested",
+  "hiBuddy": "Hi Buddy",
+  "suggestCropsToInvest" : "Suggest me crops to invest in this season",
+  "improveCrops" : "What should I do to improve my crops?",
+  "waterManagement" : "How can I improve water management in my fields?",
+  "cultivateGoodSoil" : "What are some tips for cultivating a good soil?",
+  "pestControl" : "How can I prevent pests and diseases from affecting crops?",
+  "selectPrompt" : "Select your prompt",
+  "noMessages" : "No messages here yet",
+  "harvestHero" : "HarvestHero",
+  "helpBuddy" : "HelpBuddy",
+  "shop": "Shop",
+  "chat": "Chat",
+  "home": "Home"
+}
