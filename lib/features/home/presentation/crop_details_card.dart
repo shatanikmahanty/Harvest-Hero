@@ -26,10 +26,11 @@ class CropDetailsCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           CircularProgressIndicator(
-            value: getCircularIndicatorValueBasedOnRemainingDays(
+            value: 1 - getCircularIndicatorValueBasedOnRemainingDays(
               cropModel.sowedOn,
               cropModel.harvestDate,
             ),
+            backgroundColor: colorScheme.onPrimary,
           ),
           const SizedBox(width: kPadding * 3),
           Column(

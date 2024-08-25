@@ -20,14 +20,20 @@ CropModel _$CropModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CropModel {
-  @JsonKey(name: 'expected_harvest_date', fromJson: _timestampToDateTime)
+  @JsonKey(
+      name: 'expected_harvest_date',
+      fromJson: _timestampToDateTime,
+      toJson: _dateTimeToTimestamp)
   DateTime get harvestDate => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   double get price => throw _privateConstructorUsedError;
-  int get quantity => throw _privateConstructorUsedError;
+  double get quantity => throw _privateConstructorUsedError;
   @JsonKey(name: 'quantity_unit')
   String get quantityUnit => throw _privateConstructorUsedError;
-  @JsonKey(name: 'sowed_on', fromJson: _timestampToDateTime)
+  @JsonKey(
+      name: 'sowed_on',
+      fromJson: _timestampToDateTime,
+      toJson: _dateTimeToTimestamp)
   DateTime get sowedOn => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,13 +48,19 @@ abstract class $CropModelCopyWith<$Res> {
       _$CropModelCopyWithImpl<$Res, CropModel>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'expected_harvest_date', fromJson: _timestampToDateTime)
+      {@JsonKey(
+          name: 'expected_harvest_date',
+          fromJson: _timestampToDateTime,
+          toJson: _dateTimeToTimestamp)
       DateTime harvestDate,
       String name,
       double price,
-      int quantity,
+      double quantity,
       @JsonKey(name: 'quantity_unit') String quantityUnit,
-      @JsonKey(name: 'sowed_on', fromJson: _timestampToDateTime)
+      @JsonKey(
+          name: 'sowed_on',
+          fromJson: _timestampToDateTime,
+          toJson: _dateTimeToTimestamp)
       DateTime sowedOn});
 }
 
@@ -88,7 +100,7 @@ class _$CropModelCopyWithImpl<$Res, $Val extends CropModel>
       quantity: null == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       quantityUnit: null == quantityUnit
           ? _value.quantityUnit
           : quantityUnit // ignore: cast_nullable_to_non_nullable
@@ -110,13 +122,19 @@ abstract class _$$CropModelImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'expected_harvest_date', fromJson: _timestampToDateTime)
+      {@JsonKey(
+          name: 'expected_harvest_date',
+          fromJson: _timestampToDateTime,
+          toJson: _dateTimeToTimestamp)
       DateTime harvestDate,
       String name,
       double price,
-      int quantity,
+      double quantity,
       @JsonKey(name: 'quantity_unit') String quantityUnit,
-      @JsonKey(name: 'sowed_on', fromJson: _timestampToDateTime)
+      @JsonKey(
+          name: 'sowed_on',
+          fromJson: _timestampToDateTime,
+          toJson: _dateTimeToTimestamp)
       DateTime sowedOn});
 }
 
@@ -154,7 +172,7 @@ class __$$CropModelImplCopyWithImpl<$Res>
       quantity: null == quantity
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       quantityUnit: null == quantityUnit
           ? _value.quantityUnit
           : quantityUnit // ignore: cast_nullable_to_non_nullable
@@ -171,32 +189,44 @@ class __$$CropModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CropModelImpl implements _CropModel {
   const _$CropModelImpl(
-      {@JsonKey(name: 'expected_harvest_date', fromJson: _timestampToDateTime)
+      {@JsonKey(
+          name: 'expected_harvest_date',
+          fromJson: _timestampToDateTime,
+          toJson: _dateTimeToTimestamp)
       required this.harvestDate,
       required this.name,
       required this.price,
       required this.quantity,
       @JsonKey(name: 'quantity_unit') this.quantityUnit = 'units',
-      @JsonKey(name: 'sowed_on', fromJson: _timestampToDateTime)
+      @JsonKey(
+          name: 'sowed_on',
+          fromJson: _timestampToDateTime,
+          toJson: _dateTimeToTimestamp)
       required this.sowedOn});
 
   factory _$CropModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$CropModelImplFromJson(json);
 
   @override
-  @JsonKey(name: 'expected_harvest_date', fromJson: _timestampToDateTime)
+  @JsonKey(
+      name: 'expected_harvest_date',
+      fromJson: _timestampToDateTime,
+      toJson: _dateTimeToTimestamp)
   final DateTime harvestDate;
   @override
   final String name;
   @override
   final double price;
   @override
-  final int quantity;
+  final double quantity;
   @override
   @JsonKey(name: 'quantity_unit')
   final String quantityUnit;
   @override
-  @JsonKey(name: 'sowed_on', fromJson: _timestampToDateTime)
+  @JsonKey(
+      name: 'sowed_on',
+      fromJson: _timestampToDateTime,
+      toJson: _dateTimeToTimestamp)
   final DateTime sowedOn;
 
   @override
@@ -241,32 +271,44 @@ class _$CropModelImpl implements _CropModel {
 
 abstract class _CropModel implements CropModel {
   const factory _CropModel(
-      {@JsonKey(name: 'expected_harvest_date', fromJson: _timestampToDateTime)
+      {@JsonKey(
+          name: 'expected_harvest_date',
+          fromJson: _timestampToDateTime,
+          toJson: _dateTimeToTimestamp)
       required final DateTime harvestDate,
       required final String name,
       required final double price,
-      required final int quantity,
+      required final double quantity,
       @JsonKey(name: 'quantity_unit') final String quantityUnit,
-      @JsonKey(name: 'sowed_on', fromJson: _timestampToDateTime)
+      @JsonKey(
+          name: 'sowed_on',
+          fromJson: _timestampToDateTime,
+          toJson: _dateTimeToTimestamp)
       required final DateTime sowedOn}) = _$CropModelImpl;
 
   factory _CropModel.fromJson(Map<String, dynamic> json) =
       _$CropModelImpl.fromJson;
 
   @override
-  @JsonKey(name: 'expected_harvest_date', fromJson: _timestampToDateTime)
+  @JsonKey(
+      name: 'expected_harvest_date',
+      fromJson: _timestampToDateTime,
+      toJson: _dateTimeToTimestamp)
   DateTime get harvestDate;
   @override
   String get name;
   @override
   double get price;
   @override
-  int get quantity;
+  double get quantity;
   @override
   @JsonKey(name: 'quantity_unit')
   String get quantityUnit;
   @override
-  @JsonKey(name: 'sowed_on', fromJson: _timestampToDateTime)
+  @JsonKey(
+      name: 'sowed_on',
+      fromJson: _timestampToDateTime,
+      toJson: _dateTimeToTimestamp)
   DateTime get sowedOn;
   @override
   @JsonKey(ignore: true)

@@ -41,5 +41,6 @@
   "cropNameIsRequired": "ফসলের নাম প্রয়োজন",
   "priceShouldBeGreaterThanZero": "মূল্যটি শূন্যের চেয়ে বেশি হতে হবে",
   "quantityShouldBeGreaterThanZero": "পরিমাণটি শূন্যের চেয়ে বেশি হতে হবে",
-  "thunderStormWarning": "প্রত্যাশিত বজ্রঝড় প্রায় ৯টায়"
+  "thunderStormWarning": "প্রত্যাশিত বজ্রঝড় প্রায় ৯টায়",
+  "fillSowedOnAndName": "দয়া করে ফসলের নাম এবং বোনার তারিখ পূরণ করুন"
 }

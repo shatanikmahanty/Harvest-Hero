@@ -42,5 +42,6 @@
   "cropNameIsRequired": "Crop name is required",
   "priceShouldBeGreaterThanZero": "Price should be greater than zero",
   "quantityShouldBeGreaterThanZero": "Quantity should be greater than zero",
-  "thunderStormWarning": "Expected thunderstorm around 9 PM"
+  "thunderStormWarning": "Expected thunderstorm around 9 PM",
+  "fillSowedOnAndName": "Please fill the crop name and sowed on date"
 }

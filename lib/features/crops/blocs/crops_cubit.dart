@@ -73,4 +73,13 @@ class CropsCubit extends Cubit<CropsState> {
       );
     });
   }
+
+  Future<void> addCrop(CropModel crop) async {
+    await FirebaseFirestore.instance
+        .collection('user_crops')
+        .doc('6A0f579gbjji')
+        .collection('crops')
+        .add(crop.toJson());
+    loadCropsForUser();
+  }
 }

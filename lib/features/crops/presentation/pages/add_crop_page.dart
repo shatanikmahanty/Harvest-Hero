@@ -1,8 +1,11 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:djangoflow_app/djangoflow_app.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:harvest_hero/features/app/presentation/app_reactive_date_field.dart';
 import 'package:harvest_hero/features/crops/blocs/crops_cubit.dart';
+import 'package:harvest_hero/features/crops/data/models/crop_model.dart';
 import 'package:harvest_hero/features/crops/presentation/add_crop_app_bar.dart';
 import 'package:harvest_hero/features/help_buddy/blocs/google_generative_ai_bloc.dart';
 import 'package:reactive_forms/reactive_forms.dart';
@@ -53,13 +56,15 @@ class AddCropPage extends StatelessWidget {
                     children: [
                       Expanded(
                         child: ReactiveTextField(
-                          formControlName: 'quantity',
-                          decoration: const InputDecoration(),
-                          keyboardType: TextInputType.number,
-                          validationMessages: {
-                            'required': (_) => appLocalizations.quantityShouldBeGreaterThanZero,
-                            'min': (_) => appLocalizations.quantityShouldBeGreaterThanZero,
-                          }
+                            formControlName: 'quantity',
+                            decoration: const InputDecoration(),
+                            keyboardType: TextInputType.number,
+                            validationMessages: {
+                              'required': (_) =>
+                              appLocalizations.quantityShouldBeGreaterThanZero,
+                              'min': (_) =>
+                              appLocalizations.quantityShouldBeGreaterThanZero,
+                            }
                         ),
                       ),
                       const SizedBox(width: kPadding),
@@ -109,7 +114,8 @@ class AddCropPage extends StatelessWidget {
                 decoration: const InputDecoration(),
                 keyboardType: TextInputType.number,
                 validationMessages: {
-                  'required': (_) => appLocalizations.priceShouldBeGreaterThanZero,
+                  'required': (_) =>
+                  appLocalizations.priceShouldBeGreaterThanZero,
                   'min': (_) => appLocalizations.priceShouldBeGreaterThanZero,
                 },
               ),
@@ -144,10 +150,19 @@ class AddCropPage extends StatelessWidget {
                 ),
                 suffix: GestureDetector(
                   onTap: () async {
+                    if(form.control('cropSowedOn').value == null || form.control('name').value == null){
+                      DjangoflowAppSnackbar.showInfo(
+                          appLocalizations.fillSowedOnAndName,
+                          duration: const Duration(seconds: 2)
+                      );
+                      return;
+                    }
                     final googleGenerativeAiBloc =
-                        context.read<GoogleGenerativeAiBloc>();
-                    form.control('expectedHarvestDate').value =
-                        await googleGenerativeAiBloc.predictHarvestDate(form);
+                    context.read<GoogleGenerativeAiBloc>();
+                    form
+                        .control('expectedHarvestDate')
+                        .value =
+                    await googleGenerativeAiBloc.predictHarvestDate(form);
                   },
                   child: Container(
                     height: kPadding * 7,
@@ -172,7 +187,25 @@ class AddCropPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(kPadding * 2),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    if (form.valid) {
+                      final name = form.control('name').value;
+                      final quantity = form.control('quantity').value;
+                      final price = form.control('price').value;
+                      final sowedOn = form.control('cropSowedOn').value;
+                      final harvestDate = form.control('expectedHarvestDate').value;
+                      final crop = CropModel(
+                        harvestDate: harvestDate,
+                        name: name,
+                        price: price,
+                        quantity: quantity,
+                        sowedOn: sowedOn,
+                        quantityUnit: cropCubit.state.quantityUnit ?? 'units',
+                      );
+                      await cropCubit.addCrop(crop);
+                      context.router.maybePop();
+                    }
+                  },
                   child: Text(
                     appLocalizations.addCrop,
                   ),

@@ -97,7 +97,7 @@ class GoogleGenerativeAiBloc extends Cubit<GoogleGenerativeAiState> {
 
   Future<DateTime?> predictHarvestDate(FormGroup form) async{
     final cropName = form.control('name').value;
-    final harvestDatePredictionText = "Predict the harvest date for the $cropName sowed on ${form.control('cropSowedOn').value}. Consider we are using Kolkata, India as a point of Reference. Analyze previous weather data and give me an approximate date. Give only the date in format dd/MM/yyyy. If you can't provide me the date, just give me a random suitable date, don't say I don't have access to data!" ;
+    final harvestDatePredictionText = "Predict the harvest date for the $cropName sowed on ${form.control('cropSowedOn').value}. Consider we are using Kolkata, India as a point of Reference. Analyze previous weather data and give me an approximate date. Give only the date in format dd/MM/yyyy. If you can't provide me the date, just give me a random suitable date for the crop I mentioned, don't say I don't have access to data!" ;
     final response = await generativeAiRepository.generateFromPrompt(
       text: harvestDatePredictionText,
       type: ContentType.text,
