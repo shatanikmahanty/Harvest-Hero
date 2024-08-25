@@ -7,6 +7,7 @@ import 'package:harvest_hero/features/crops/presentation/add_crop_app_bar.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../configurations/theme/size_constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 @RoutePage()
 class AddCropPage extends StatelessWidget {
@@ -15,6 +16,7 @@ class AddCropPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cropCubit = context.read<CropsCubit>();
+    final appLocalizations = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
     final primaryColor = theme.colorScheme.primary;
     return Scaffold(
@@ -26,7 +28,7 @@ class AddCropPage extends StatelessWidget {
             padding: const EdgeInsets.all(kPadding * 2),
             children: [
               Text(
-                'Crop name',
+                appLocalizations.cropName,
                 style: theme.textTheme.titleMedium
                     ?.copyWith(color: theme.colorScheme.onSurface),
               ),
@@ -37,7 +39,7 @@ class AddCropPage extends StatelessWidget {
               ),
               const SizedBox(height: kPadding * 1.5),
               Text(
-                'Quantity',
+                appLocalizations.quantityOfSeeds,
                 style: theme.textTheme.titleMedium
                     ?.copyWith(color: theme.colorScheme.onSurface),
               ),
@@ -70,14 +72,14 @@ class AddCropPage extends StatelessWidget {
                                 cropCubit.updateQuantityUnit(value);
                               }
                             },
-                            items: const [
+                            items: [
                               DropdownMenuItem(
                                 value: 'kg',
-                                child: Text('kg'),
+                                child: Text(appLocalizations.kilo),
                               ),
                               DropdownMenuItem(
                                 value: 'units',
-                                child: Text('units'),
+                                child: Text(appLocalizations.units),
                               ),
                             ],
                           ),
@@ -89,7 +91,7 @@ class AddCropPage extends StatelessWidget {
               ),
               const SizedBox(height: kPadding * 1.5),
               Text(
-                'Price',
+                appLocalizations.pricePerSeed,
                 style: theme.textTheme.titleMedium
                     ?.copyWith(color: theme.colorScheme.onSurface),
               ),
@@ -100,7 +102,7 @@ class AddCropPage extends StatelessWidget {
               ),
               const SizedBox(height: kPadding * 1.5),
               Text(
-                'Crop sowed on',
+                appLocalizations.crop_sowed_on,
                 style: theme.textTheme.titleMedium
                     ?.copyWith(color: theme.colorScheme.onSurface),
               ),
@@ -114,7 +116,7 @@ class AddCropPage extends StatelessWidget {
               ),
               const SizedBox(height: kPadding * 1.5),
               Text(
-                'Expected harvesting date',
+                appLocalizations.expected_harvested_date,
                 style: theme.textTheme.titleMedium
                     ?.copyWith(color: theme.colorScheme.onSurface),
               ),
@@ -133,8 +135,8 @@ class AddCropPage extends StatelessWidget {
                 padding: const EdgeInsets.all(kPadding * 2),
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: const Text(
-                    'Add Crop',
+                  child: Text(
+                    appLocalizations.addCrop,
                   ),
                 ),
               ),
