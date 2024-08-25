@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:harvest_hero/configurations/configurations.dart';
 import 'package:intl/intl.dart';
 import 'package:reactive_forms/reactive_forms.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AppReactiveDateField extends StatelessWidget {
   const AppReactiveDateField(
@@ -19,6 +20,7 @@ class AppReactiveDateField extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final primaryColor = Theme.of(context).colorScheme.primary;
+    final appLocalizations = AppLocalizations.of(context)!;
     return ReactiveValueListenableBuilder<DateTime>(
       formControlName: formControlName,
       builder: (context, formControl, child) {
@@ -87,7 +89,7 @@ class AppReactiveDateField extends StatelessWidget {
                 ),
                 const SizedBox(width: kPadding),
                 Text(
-                  'Select Date',
+                  appLocalizations.selectDate,
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium

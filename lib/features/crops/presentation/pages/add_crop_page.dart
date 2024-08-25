@@ -19,7 +19,6 @@ class AddCropPage extends StatelessWidget {
     final cropCubit = context.read<CropsCubit>();
     final appLocalizations = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
-    final primaryColor = theme.colorScheme.primary;
     return Scaffold(
       appBar: const AddCropAppBar(),
       body: ReactiveFormBuilder(
@@ -37,6 +36,9 @@ class AddCropPage extends StatelessWidget {
               ReactiveTextField(
                 formControlName: 'name',
                 decoration: const InputDecoration(),
+                validationMessages: {
+                  'required': (_) => appLocalizations.cropNameIsRequired,
+                },
               ),
               const SizedBox(height: kPadding * 1.5),
               Text(
@@ -53,6 +55,11 @@ class AddCropPage extends StatelessWidget {
                         child: ReactiveTextField(
                           formControlName: 'quantity',
                           decoration: const InputDecoration(),
+                          keyboardType: TextInputType.number,
+                          validationMessages: {
+                            'required': (_) => appLocalizations.quantityShouldBeGreaterThanZero,
+                            'min': (_) => appLocalizations.quantityShouldBeGreaterThanZero,
+                          }
                         ),
                       ),
                       const SizedBox(width: kPadding),
@@ -100,6 +107,11 @@ class AddCropPage extends StatelessWidget {
               ReactiveTextField(
                 formControlName: 'price',
                 decoration: const InputDecoration(),
+                keyboardType: TextInputType.number,
+                validationMessages: {
+                  'required': (_) => appLocalizations.priceShouldBeGreaterThanZero,
+                  'min': (_) => appLocalizations.priceShouldBeGreaterThanZero,
+                },
               ),
               const SizedBox(height: kPadding * 1.5),
               Text(

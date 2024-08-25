@@ -25,7 +25,7 @@
   "issueWithPestsPrompt" : "Inspect the provided image of the crop and detect any pests that may be affecting it, providing information on the type of pest and potential control methods.",
   "generateResponse" : "Generate Response",
   "generatedResponse" : "Generated Response",
-  "emptyChat": "No messages here yet"
+  "emptyChat": "No messages here yet",
   "generatedResponse" : "Generated Response",
   "createNewCrop" : "Create new crop",
   "addNewCrop" : "Add new crop",
@@ -37,5 +37,10 @@
   "expected_harvested_date" : "Expected harvested date",
   "addCrop" : "Add Crop",
   "kilo" : "Kilo",
-  "units" : "Units"
+  "units" : "Units",
+  "selectDate" : "Select Date",
+  "cropNameIsRequired": "Crop name is required",
+  "priceShouldBeGreaterThanZero": "Price should be greater than zero",
+  "quantityShouldBeGreaterThanZero": "Quantity should be greater than zero",
+  "thunderStormWarning": "Expected thunderstorm around 9 PM"
 }

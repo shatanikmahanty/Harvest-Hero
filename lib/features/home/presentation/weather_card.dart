@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:harvest_hero/configurations/configurations.dart';
 import 'package:harvest_hero/features/home/blocs/weather_cubit.dart';
 import 'package:harvest_hero/utils/weather_code_to_icon.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class WeatherCard extends StatelessWidget {
   const WeatherCard({super.key});
@@ -11,8 +12,8 @@ class WeatherCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final textTheme = theme.textTheme;
     final weather = context.watch<WeatherCubit>().state.weather;
+    final appLocalizations = AppLocalizations.of(context)!;
     return Container(
       margin: const EdgeInsets.all(kPadding),
       padding: const EdgeInsets.only(bottom: kPadding),
@@ -81,7 +82,7 @@ class WeatherCard extends StatelessWidget {
               ),
               const SizedBox(width: kPadding),
               Text(
-                'Expected thunderstorm at 03:00 PM',
+                appLocalizations.thunderStormWarning,
                 style: theme.textTheme.titleMedium?.copyWith(
                   color: colorScheme.onSurface,
                 ),

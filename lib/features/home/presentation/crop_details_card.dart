@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:harvest_hero/features/crops/data/models/crop_model.dart';
+import 'package:intl/intl.dart';
 
 import '../../../configurations/configurations.dart';
 
 class CropDetailsCard extends StatelessWidget {
-  const CropDetailsCard({super.key});
+  const CropDetailsCard({super.key, required this.cropModel});
+
+  final CropModel cropModel;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final textTheme = theme.textTheme;
+    final dateFormatter = DateFormat('dd MMMM yyyy');
     return Container(
       margin: const EdgeInsets.all(kPadding),
       padding: const EdgeInsets.symmetric(
@@ -19,32 +23,35 @@ class CropDetailsCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(kPadding * 3),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Icon(
-            Icons.pie_chart_rounded,
-            size: kPadding * 10,
+          CircularProgressIndicator(
+            value: getCircularIndicatorValueBasedOnRemainingDays(
+              cropModel.sowedOn,
+              cropModel.harvestDate,
+            ),
           ),
+          const SizedBox(width: kPadding * 3),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Wheat",
+                cropModel.name,
                 style: theme.textTheme.titleLarge?.copyWith(
                     color: colorScheme.onSurface, fontWeight: FontWeight.w400),
               ),
               Text(
-                "20 kgs",
+                '${cropModel.quantity} ${cropModel.quantityUnit}',
                 style: theme.textTheme.titleMedium?.copyWith(
                     color: colorScheme.onSurface, fontWeight: FontWeight.w400),
               ),
               Text(
-                "Harvested on : 15-06-2024",
+                "Sowed on : ${dateFormatter.format(cropModel.sowedOn)}",
                 style: theme.textTheme.titleMedium?.copyWith(
                     color: colorScheme.onSurface, fontWeight: FontWeight.w400),
               ),
               Text(
-                "Expected date : 30-10-2025",
+                "Expected date : ${dateFormatter.format(cropModel.harvestDate)}",
                 style: theme.textTheme.titleMedium?.copyWith(
                     color: colorScheme.onSurface, fontWeight: FontWeight.w400),
               ),
@@ -53,5 +60,14 @@ class CropDetailsCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  double getCircularIndicatorValueBasedOnRemainingDays(
+    DateTime sowedOn,
+    DateTime harvestDate,
+  ) {
+    final totalDays = harvestDate.difference(sowedOn).inDays;
+    final daysRemaining = harvestDate.difference(DateTime.now()).inDays;
+    return daysRemaining / totalDays;
   }
 }

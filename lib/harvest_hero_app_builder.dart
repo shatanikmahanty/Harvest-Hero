@@ -3,7 +3,6 @@ import 'package:djangoflow_app_links/djangoflow_app_links.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:harvest_hero/features/app/app.dart';
 import 'package:harvest_hero/features/crops/blocs/crops_cubit.dart';
 import 'package:harvest_hero/features/help_buddy/blocs/google_generative_ai_bloc.dart';
@@ -57,7 +56,7 @@ class HarvestHeroAppBuilder extends AppBuilder {
               ),
             ),
             BlocProvider<CropsCubit>(
-              create: (context) => CropsCubit(),
+              create: (context) => CropsCubit()..loadCropsForUser(),
             ),
           ],
           builder: (context) => AppCubitConsumer(

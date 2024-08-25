@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:harvest_hero/configurations/configurations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddCropAppBar extends StatelessWidget implements PreferredSizeWidget {
   const AddCropAppBar({super.key});
@@ -7,6 +8,7 @@ class AddCropAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final appLocalizations = AppLocalizations.of(context)!;
     return SafeArea(
       child: Container(
         height: preferredSize.height,
@@ -33,14 +35,14 @@ class AddCropAppBar extends StatelessWidget implements PreferredSizeWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Create a new crop',
+                    appLocalizations.createNewCrop,
                     style: theme.textTheme.headlineSmall
                         ?.copyWith(color: theme.colorScheme.onPrimary),
                   ),
                   const SizedBox(height: kPadding),
                   Expanded(
                     child: Text(
-                      'Add details of your crop for future tracking and analytics',
+                      appLocalizations.addDetailCrop,
                       style: theme.textTheme.titleMedium?.copyWith(
                           color: theme.colorScheme.onPrimary,
                           fontWeight: FontWeight.normal),

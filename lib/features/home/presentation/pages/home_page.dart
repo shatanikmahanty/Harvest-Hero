@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:harvest_hero/configurations/configurations.dart';
+import 'package:harvest_hero/features/crops/blocs/crops_cubit.dart';
 import 'package:harvest_hero/features/home/blocs/weather_cubit.dart';
 import 'package:harvest_hero/features/home/presentation/crop_details_card.dart';
 import 'package:harvest_hero/features/home/presentation/weather_card.dart';
@@ -17,7 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   void initState() {
-    context.read<WeatherCubit>().updateWeather(22.975084, 88.434509);
+    context.read<WeatherCubit>().updateWeather(22.9638, 88.5245);
     super.initState();
   }
 
@@ -30,15 +31,15 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
           children: [
             const SizedBox(height: kPadding * 2),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: kPadding * 2),
               child: Text(
                 appLocalizations!.weatherUpdates,
-                style: theme.textTheme.titleLarge?.copyWith(
-                  color: colorScheme.onSecondaryContainer
-                ),
+                style: theme.textTheme.titleLarge
+                    ?.copyWith(color: colorScheme.onSecondaryContainer),
               ),
             ),
             const SizedBox(
@@ -79,7 +80,23 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-            const CropDetailsCard(),
+            BlocBuilder<CropsCubit, CropsState>(builder: (context, state) {
+              final crops = state.crops;
+              if (state.isLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              return Expanded(
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    final crop = crops[index];
+                    return CropDetailsCard(cropModel: crop);
+                  },
+                  itemCount: crops.length,
+                ),
+              );
+            }),
           ],
         ),
       ),

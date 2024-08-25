@@ -32,14 +32,12 @@ class CropsCubit extends Cubit<CropsState> {
           validators: [
             Validators.required,
             Validators.min(1),
-            Validators.number()
           ],
         ),
         'price': FormControl<double>(
           validators: [
             Validators.required,
             Validators.min(1),
-            Validators.number()
           ],
         ),
         'cropSowedOn': FormControl<DateTime>(

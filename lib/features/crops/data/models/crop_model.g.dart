@@ -8,11 +8,13 @@ part of 'crop_model.dart';
 
 _$CropModelImpl _$$CropModelImplFromJson(Map<String, dynamic> json) =>
     _$CropModelImpl(
-      harvestDate: DateTime.parse(json['expected_harvest_date'] as String),
+      harvestDate:
+          _timestampToDateTime(json['expected_harvest_date'] as Timestamp),
       name: json['name'] as String,
       price: (json['price'] as num).toDouble(),
       quantity: (json['quantity'] as num).toInt(),
-      sowedOn: DateTime.parse(json['sowedOn'] as String),
+      quantityUnit: json['quantity_unit'] as String? ?? 'units',
+      sowedOn: _timestampToDateTime(json['sowed_on'] as Timestamp),
     );
 
 Map<String, dynamic> _$$CropModelImplToJson(_$CropModelImpl instance) =>
@@ -21,5 +23,6 @@ Map<String, dynamic> _$$CropModelImplToJson(_$CropModelImpl instance) =>
       'name': instance.name,
       'price': instance.price,
       'quantity': instance.quantity,
-      'sowedOn': instance.sowedOn.toIso8601String(),
+      'quantity_unit': instance.quantityUnit,
+      'sowed_on': instance.sowedOn.toIso8601String(),
     };
