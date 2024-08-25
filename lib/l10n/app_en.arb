@@ -26,4 +26,16 @@
   "generateResponse" : "Generate Response",
   "generatedResponse" : "Generated Response",
   "emptyChat": "No messages here yet"
+  "generatedResponse" : "Generated Response",
+  "createNewCrop" : "Create new crop",
+  "addNewCrop" : "Add new crop",
+  "addDetailCrop" : "Add details of your crop for future tracking and analytics",
+  "cropName" : "Crop name",
+  "quantityOfSeeds" : "Quantity of seeds",
+  "pricePerSeed" : "Price per seed",
+  "crop_sowed_on" : "Crop sowed on",
+  "expected_harvested_date" : "Expected harvested date",
+  "addCrop" : "Add Crop",
+  "kilo" : "Kilo",
+  "units" : "Units"
 }
