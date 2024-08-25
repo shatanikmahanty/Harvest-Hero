@@ -19,7 +19,7 @@ class AppLanguagePicker extends StatelessWidget {
                 context.read<AppCubit>().updateLocale(language);
               }
             },
-            items: {'en': 'English', 'ben': 'Bengali'}
+            items: {'en': 'English', 'ben': 'বাংলা'}
                 .map((key, value) {
                   return MapEntry(
                     key,

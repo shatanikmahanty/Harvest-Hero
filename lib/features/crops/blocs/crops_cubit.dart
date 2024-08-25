@@ -25,11 +25,29 @@ class CropsCubit extends Cubit<CropsState> {
   CropsCubit() : super(const CropsState());
 
   FormGroup get cropsForm => FormGroup({
-        'name': FormControl<String>(),
-        'quantity': FormControl<double>(),
-        'price': FormControl<double>(),
-        'cropSowedOn': FormControl<DateTime>(),
-        'expectedHarvestDate': FormControl<DateTime>(),
+        'name': FormControl<String>(
+          validators: [Validators.required],
+        ),
+        'quantity': FormControl<double>(
+          validators: [
+            Validators.required,
+            Validators.min(1),
+            Validators.number()
+          ],
+        ),
+        'price': FormControl<double>(
+          validators: [
+            Validators.required,
+            Validators.min(1),
+            Validators.number()
+          ],
+        ),
+        'cropSowedOn': FormControl<DateTime>(
+          validators: [Validators.required],
+        ),
+        'expectedHarvestDate': FormControl<DateTime>(
+          validators: [Validators.required],
+        ),
       });
 
   void updateQuantityUnit(String value) {

@@ -31,6 +31,7 @@ class _AppHomePageState extends State<AppHomePage> {
       routes: const [
         HomeRoute(),
         ChatRoute(),
+        ShopRoute(),
       ],
       transitionBuilder: (context, child, animation) {
         const begin = Offset(1.0, 0.0);

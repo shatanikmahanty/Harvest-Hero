@@ -10,8 +10,8 @@ final appHomeRoutes = [
     path: 'chat',
     page: ChatRoute.page,
   ),
-  // AutoRoute(
-  //   path: 'community',
-  //   page: CommunityRoute.page,
-  // ),
+  AutoRoute(
+    path: 'shop',
+    page: ShopRoute.page,
+  ),
 ];

@@ -8,11 +8,13 @@ class AppReactiveDateField extends StatelessWidget {
       {super.key,
       required this.formControlName,
       required this.firstDate,
-      required this.lastDate});
+      required this.lastDate, this.suffix});
 
   final String formControlName;
   final DateTime firstDate;
   final DateTime lastDate;
+  final Widget? suffix;
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -22,47 +24,55 @@ class AppReactiveDateField extends StatelessWidget {
       builder: (context, formControl, child) {
         final formatter = DateFormat('dd MMMM yyyy');
         final value = formControl.value;
-        return Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: kPadding,
-            vertical: kPadding * 2,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(kPadding),
-            border: Border.all(
-              color: theme.colorScheme.onPrimaryContainer,
-            ),
-          ),
-          child: Row(
-            children: [
-              if (value != null) ...[
-                Icon(
-                  Icons.date_range,
-                  color: primaryColor,
+        return Row(
+          children: [
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: kPadding,
+                  vertical: kPadding * 2,
                 ),
-                const SizedBox(width: kPadding),
-                Text(
-                  formatter.format(value),
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: primaryColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                ),
-                const SizedBox(width: kPadding),
-                if (formControl.enabled)
-                  GestureDetector(
-                    onTap: () {
-                      formControl.value = null;
-                    },
-                    child: Icon(
-                      Icons.clear,
-                      color: primaryColor,
-                    ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(kPadding),
+                  border: Border.all(
+                    color: theme.colorScheme.onPrimaryContainer,
                   ),
-              ] else
-                child ?? const Offstage(),
-            ],
-          ),
+                ),
+                child: Row(
+                  children: [
+                    if (value != null) ...[
+                      Icon(
+                        Icons.date_range,
+                        color: primaryColor,
+                      ),
+                      const SizedBox(width: kPadding),
+                      Text(
+                        formatter.format(value),
+                        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                              color: primaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                      const SizedBox(width: kPadding),
+                      if (formControl.enabled)
+                        GestureDetector(
+                          onTap: () {
+                            formControl.value = null;
+                          },
+                          child: Icon(
+                            Icons.clear,
+                            color: primaryColor,
+                          ),
+                        ),
+                    ] else
+                      child ?? const Offstage(),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(width: kPadding),
+            suffix ?? const Offstage(),
+          ],
         );
       },
       child: ReactiveDatePicker(

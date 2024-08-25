@@ -24,5 +24,6 @@
   "issueWithPests" : "Identify pests affecting this crop",
   "issueWithPestsPrompt" : "Inspect the provided image of the crop and detect any pests that may be affecting it, providing information on the type of pest and potential control methods.",
   "generateResponse" : "Generate Response",
-  "generatedResponse" : "Generated Response"
+  "generatedResponse" : "Generated Response",
+  "emptyChat": "No messages here yet"
 }

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:harvest_hero/features/app/presentation/app_reactive_date_field.dart';
 import 'package:harvest_hero/features/crops/blocs/crops_cubit.dart';
 import 'package:harvest_hero/features/crops/presentation/add_crop_app_bar.dart';
+import 'package:harvest_hero/features/help_buddy/blocs/google_generative_ai_bloc.dart';
 import 'package:reactive_forms/reactive_forms.dart';
 
 import '../../../../configurations/theme/size_constants.dart';
@@ -37,7 +38,7 @@ class AddCropPage extends StatelessWidget {
               ),
               const SizedBox(height: kPadding * 1.5),
               Text(
-                'Quantity',
+                'Quantity of seeds',
                 style: theme.textTheme.titleMedium
                     ?.copyWith(color: theme.colorScheme.onSurface),
               ),
@@ -89,7 +90,7 @@ class AddCropPage extends StatelessWidget {
               ),
               const SizedBox(height: kPadding * 1.5),
               Text(
-                'Price',
+                'Price per seed',
                 style: theme.textTheme.titleMedium
                     ?.copyWith(color: theme.colorScheme.onSurface),
               ),
@@ -125,6 +126,31 @@ class AddCropPage extends StatelessWidget {
                 lastDate: DateTime.now().add(
                   const Duration(
                     days: 365,
+                  ),
+                ),
+                suffix: GestureDetector(
+                  onTap: () async {
+                    final googleGenerativeAiBloc =
+                        context.read<GoogleGenerativeAiBloc>();
+                    form.control('expectedHarvestDate').value =
+                        await googleGenerativeAiBloc.predictHarvestDate(form);
+                  },
+                  child: Container(
+                    height: kPadding * 7,
+                    width: kPadding * 7,
+                    padding: const EdgeInsets.all(kPadding / 2),
+                    decoration: BoxDecoration(
+                      color: theme.colorScheme.onSurface.withOpacity(0.8),
+                      borderRadius: BorderRadius.circular(kPadding),
+                    ),
+                    child: const Center(
+                      child: Text(
+                        '✨',
+                        style: TextStyle(
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
               ),

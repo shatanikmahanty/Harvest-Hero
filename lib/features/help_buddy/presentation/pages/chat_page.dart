@@ -45,6 +45,14 @@ class _ChatPageState extends State<ChatPage> {
       showUserAvatars: true,
       showUserNames: true,
       user: _user,
+      emptyState: Center(
+        child: Text(
+          appLocalizations.emptyChat,
+          style: textTheme.titleMedium?.copyWith(
+            color: colorScheme.onSurface,
+          ),
+        ),
+      ),
       customBottomWidget: Container(
         width: double.infinity,
         padding: const EdgeInsets.all(kPadding * 1.5),

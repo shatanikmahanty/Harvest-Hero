@@ -3,6 +3,8 @@ import 'package:flutter_chat_types/flutter_chat_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:harvest_hero/features/help_buddy/help_buddy.dart';
+import 'package:intl/intl.dart';
+import 'package:reactive_forms/src/models/models.dart';
 import 'package:uuid/uuid.dart';
 
 part 'google_generative_ai_bloc.freezed.dart';
@@ -91,5 +93,25 @@ class GoogleGenerativeAiBloc extends Cubit<GoogleGenerativeAiState> {
 
   void clearImageAnalysisResponse() {
     emit(state.copyWith(imageAnalysisResult: null));
+  }
+
+  Future<DateTime?> predictHarvestDate(FormGroup form) async{
+    final cropName = form.control('name').value;
+    final harvestDatePredictionText = "Predict the harvest date for the $cropName sowed on ${form.control('cropSowedOn').value}. Consider we are using Kolkata, India as a point of Reference. Analyze previous weather data and give me an approximate date. Give only the date in format dd/MM/yyyy. If you can't provide me the date, just give me a random suitable date, don't say I don't have access to data!" ;
+    final response = await generativeAiRepository.generateFromPrompt(
+      text: harvestDatePredictionText,
+      type: ContentType.text,
+    );
+    final harvestDate = response.text;
+    final dateFormat = DateFormat('dd/MM/yyyy');
+    if (harvestDate != null) {
+      try{
+        final harvestDateFormatted = dateFormat.parse(harvestDate);
+        return harvestDateFormatted;
+      } catch(e){
+        return null;
+      }
+    }
+    return null;
   }
 }
