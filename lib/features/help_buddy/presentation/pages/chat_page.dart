@@ -28,7 +28,6 @@ class _ChatPageState extends State<ChatPage> {
     final appLocalizations = AppLocalizations.of(context)!;
     final List<String> prompts = <String>[
       appLocalizations.hiBuddy,
-      appLocalizations.suggestCropsToInvest,
       appLocalizations.improveCrops,
       appLocalizations.waterManagement,
       appLocalizations.cultivateGoodSoil,
