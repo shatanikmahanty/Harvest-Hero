@@ -76,7 +76,7 @@ class GoogleGenerativeAiBloc extends Cubit<GoogleGenerativeAiState> {
     );
   }
 
-  void submitParts(List<Part> parts) async {
+  Future<void> submitParts(List<Part> parts) async {
     final response = await generativeAiRepository.generateFromParts(
       parts: parts,
       type: ContentType.text,

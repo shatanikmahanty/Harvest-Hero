@@ -13,5 +13,16 @@
   "helpBuddy" : "HelpBuddy",
   "shop": "Shop",
   "chat": "Chat",
-  "home": "Home"
+  "home": "Home",
+  "analyzeImage": "Analyze Image",
+  "addImage": "Add Image",
+  "problemsFaced": "Problems Faced",
+  "issueWithCrop" : "Identify issues with this crop based on color",
+  "issueWithCropPrompt" : "Analyze the provided image of the crop and describe any issues based on its color, including possible nutrient deficiencies, diseases, or environmental stress.",
+  "issueWithTexture" :"Identify issues with this crop based on texture",
+  "issueWithTexturePrompt" :"Examine the provided image of the crop and identify any problems related to texture, such as signs of overwatering, disease, or physical damage to the plant tissue.",
+  "issueWithPests" : "Identify pests affecting this crop",
+  "issueWithPestsPrompt" : "Inspect the provided image of the crop and detect any pests that may be affecting it, providing information on the type of pest and potential control methods.",
+  "generateResponse" : "Generate Response",
+  "generatedResponse" : "Generated Response"
 }
